@@ -1,0 +1,4 @@
+{
+    "mogoURI":"mongodb+srv://jay:jay123@cluster0-yyivr.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtKey":"Dev__Connect__Node__Web"
+}
