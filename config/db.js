@@ -6,7 +6,12 @@ const dbJson = config.get("mogoURI")
 const ConnectDB = async () =>{
     try {
         
-        await mongoose.connect(dbJson, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true})
+        await mongoose.connect(dbJson, {
+            useUnifiedTopology: true, 
+            useNewUrlParser: true, 
+            useCreateIndex: true,
+            useFindAndModify:false
+        })
         console.log('DataBase Conneted...');
         
 

@@ -1,4 +1,6 @@
 {
     "mogoURI":"mongodb+srv://jay:jay123@cluster0-yyivr.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtKey":"Dev__Connect__Node__Web"
-}
+    "jwtKey":"Dev__Connect__Node__Web",
+    "GitHubClientID":"928eba599dd59a11d45f",
+    "GitHubClientSecret":"cba5d79c24318b990d607f09d0dc474257376eab"
+} 
