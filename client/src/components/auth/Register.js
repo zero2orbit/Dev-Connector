@@ -1,6 +1,13 @@
 import React, { Fragment, useState} from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setAlert } from '../../action/alert_action'
+import { register } from '../../action/auth'
 
-const Register = () => {
+import PropTypes from 'prop-types'
+
+
+const Register = ({ setAlert, register }) => {
 
     const [formData, setFormData] = useState({
         name:'',
@@ -14,12 +21,12 @@ const Register = () => {
     const onChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value})}
 
-    const onSubmit = e =>{
+    const onSubmit = async (e) =>{
         e.preventDefault();
         if (password !== password2) {
-            console.log('Password Doesnot Match')
+            setAlert('Password Doesnot Match', 'danger')
         }else{
-            console.log(formData)
+            register({ name, email, password})
         }
     }
     
@@ -45,7 +52,7 @@ const Register = () => {
             placeholder="Password"
             name="password"
             value={password} onChange={e => onChange(e)}
-            minLength="6"
+            minLength="3"
           />
         </div>
         <div className="form-group">
@@ -54,16 +61,22 @@ const Register = () => {
             placeholder="Confirm Password"
             name="password2"
             value={password2} onChange={e => onChange(e)}
-            minLength="6"
+            minLength="3"
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p className="my-1">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account? <Link to="/login">Sign In</Link>
       </p>
     </Fragment>
   )
 }
 
-export default Register
+Register.prototype = {
+  setAlert:PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+}
+
+
+export default connect(null, { setAlert, register })(Register)

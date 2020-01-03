@@ -8,13 +8,13 @@ const config = require('config')
 
 const User = require('../../models/Users')
 
-// @route          POST api/user
+// @route          POST api/users
 // @Description    Register User
 // @assess         Public
 router.post('/', [
     check('name', 'Name is Required').not().isEmpty(),
     check('email','Please Enter A valid Email Id').isEmail(),
-    check('password','Password Should be 6 or More Charecter').isLength({ min:6 })
+    check('password','Password Should be 6 or More Charecter').isLength({ min:3 })
 ], async(req, res) =>{
     const error = validationResult(req)
 
@@ -72,8 +72,10 @@ router.post('/', [
                 res.json({ token });
             })
 
-
+            console.log('Sucess');
+            
     } catch (e) {
+        console.error(e.message)
         res.status(500).send('Internal Server Error')
     }
 

@@ -84,6 +84,8 @@ router.post('/', [auth, [
         }
 })
 
+
+
 // @route          Get api/profile/all
 // @Description    get All Prifile
 // @assess         Public
@@ -100,6 +102,8 @@ router.get('/', async(req, res) =>{
     }
     
 })
+
+
 
 // @route          Get api/profile/user/:user_id
 // @Description    get All Prifile
